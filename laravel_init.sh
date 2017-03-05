@@ -11,6 +11,7 @@ if [ ! -d /var/www/html/api ]; then
     composer require yab/laracogs
     php artisan vendor:publish --provider="Yab\Laracogs\LaracogsProvider"
     artisan laracogs:api
+    composer update --no-scripts
 fi
 
 #Laravel log permissions

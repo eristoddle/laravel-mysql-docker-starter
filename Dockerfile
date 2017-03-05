@@ -4,21 +4,31 @@ FROM ubuntu:14.04
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl
 
+# Add php 5.6
+RUN sudo apt-get update
+RUN sudo apt-get install software-properties-common -y
+RUN sudo add-apt-repository ppa:ondrej/php -y
+RUN sudo apt-get update
+RUN sudo apt-get upgrade -y --force-yes
+RUN sudo apt-get install -y --force-yes php5.6
+
 # Basic Requirements
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install\
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --force-yes install\
 		apache2\
         curl\
+        git\
 		libapache2-mod-php5\
 		php5-mysql php-apc
 
 # Laravel Requirements
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install\
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install\
 		php5-curl\
 		php5-gd\
 		php5-intl\
 		php-pear\
 		php5-imagick\
 		php5-imap\
+        php-mbstring\
 		php5-mcrypt\
 		php5-memcache\
 		php5-ming\
