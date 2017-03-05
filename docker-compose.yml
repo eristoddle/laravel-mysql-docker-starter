@@ -18,6 +18,6 @@ db:
     - ./mysql_volume:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: mysql
-    MYSQL_USER: af23
-    MYSQL_PASSWORD: p4nclzJCCfi1
-    MYSQL_DATABASE: "af23"
+    MYSQL_USER: api_user
+    MYSQL_PASSWORD: api_password
+    MYSQL_DATABASE: "api_database"
