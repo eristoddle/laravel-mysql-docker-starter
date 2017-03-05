@@ -10,6 +10,7 @@ if [ ! -d /var/www/html/api ]; then
     composer create-project --prefer-dist laravel/laravel api
     composer require yab/laracogs
     php artisan vendor:publish --provider="Yab\Laracogs\LaracogsProvider"
+    artisan laracogs:api
 fi
 
 #Laravel log permissions
