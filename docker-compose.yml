@@ -1,0 +1,23 @@
+web:
+  build: .
+  links:
+    - db
+  ports:
+    - "8000:80"
+  expose:
+    - "8000"
+  volumes:
+    - ./:/var/www/html
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  expose:
+    - "3306"
+  volumes:
+    - ./mysql_volume:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: mysql
+    MYSQL_USER: af23
+    MYSQL_PASSWORD: p4nclzJCCfi1
+    MYSQL_DATABASE: "af23"
