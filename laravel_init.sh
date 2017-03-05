@@ -26,6 +26,7 @@ cd /var/www/html/api
 php artisan cache:clear
 composer dump-autoload
 
+
 #Launch apache in the foreground
 #We do this in the forground so that Docker can watch
 #the process to detect if it has crashed
