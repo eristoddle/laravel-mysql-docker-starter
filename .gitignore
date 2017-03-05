@@ -4,3 +4,4 @@ mysql_volume
 node_modules
 dist
 coverage
+.ftpconfig
