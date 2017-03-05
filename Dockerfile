@@ -17,28 +17,28 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --force-yes inst
 		apache2\
         curl\
         git\
-		libapache2-mod-php5\
-		php5-mysql php-apc
+		libapache2-mod-php5.6\
+		php5.6-mysql php-apc
 
 # Laravel Requirements
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install\
-		php5-curl\
-		php5-gd\
-		php5-intl\
+		php5.6-curl\
+		php5.6-gd\
+		php5.6-intl\
 		php-pear\
-		php5-imagick\
-		php5-imap\
-        php-mbstring\
-		php5-mcrypt\
-		php5-memcache\
+		php5.6-imagick\
+		php5.6-imap\
+        php5.6-mbstring\
+		php5.6-mcrypt\
+		php5.6-memcache\
 		php5-ming\
-		php5-ps\
-		php5-pspell\
-		php5-recode\
-		php5-sqlite\
-		php5-tidy\
-		php5-xmlrpc\
-		php5-xsl
+		php5.6-ps\
+		php5.6-pspell\
+		php5.6-recode\
+		php5.6-sqlite\
+		php5.6-tidy\
+		php5.6-xmlrpc\
+		php5.6-xsl
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 
@@ -57,9 +57,9 @@ RUN /usr/sbin/a2enmod rewrite
 RUN chown -R www-data:www-data /var/www/
 
 # php config
-RUN sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" /etc/php5/apache2/php.ini
-RUN sed -i -e "s/post_max_size\s*=\s*8M/post_max_size = 100M/g" /etc/php5/apache2/php.ini
-RUN sed -i -e "s/short_open_tag\s*=\s*Off/short_open_tag = On/g" /etc/php5/apache2/php.ini
+RUN sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" /etc/php/5.6/apache2/php.ini
+RUN sed -i -e "s/post_max_size\s*=\s*8M/post_max_size = 100M/g" /etc/php/5.6/apache2/php.ini
+RUN sed -i -e "s/short_open_tag\s*=\s*Off/short_open_tag = On/g" /etc/php/5.6/apache2/php.ini
 
 # fix for php5-mcrypt
 RUN /usr/sbin/php5enmod mcrypt

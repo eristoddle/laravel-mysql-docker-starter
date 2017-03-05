@@ -4,14 +4,18 @@ set -e
 #We will restart it in the forground at the end of the script
 service apache2 stop
 
+sudo phpenmod mcrypt
+sudo phpenmod mbstring
+
 # Create api laravel project if it doesn't exist
 if [ ! -d /var/www/html/api ]; then
     cd /var/www/html
     composer create-project --prefer-dist laravel/laravel api
+    cd api
     composer require yab/laracogs
     php artisan vendor:publish --provider="Yab\Laracogs\LaracogsProvider"
     artisan laracogs:api
-    composer update --no-scripts
+    composer install
 fi
 
 #Laravel log permissions
