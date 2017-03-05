@@ -1,3 +1,5 @@
  .ftpconfig
  .git
  .gitignore
+ .mysql_volume
+ docker-compose.yml
