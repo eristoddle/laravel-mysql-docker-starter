@@ -14,7 +14,7 @@ if [ ! -d /var/www/html/api ]; then
     cd api
     composer require yab/laracogs
     php artisan vendor:publish --provider="Yab\Laracogs\LaracogsProvider"
-    artisan laracogs:api
+    php artisan laracogs:api
     composer install
 fi
 

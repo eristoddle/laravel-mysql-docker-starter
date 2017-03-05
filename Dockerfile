@@ -16,6 +16,8 @@ RUN sudo apt-get install -y --force-yes php5.6
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --force-yes install\
 		apache2\
         curl\
+        zip\
+        unzip\
         git\
 		libapache2-mod-php5.6\
 		php5.6-mysql php-apc
